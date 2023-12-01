@@ -1,3 +1,5 @@
+import timeit
+
 def uniq_conservative(seq):
     seen = set()
     out = []
@@ -18,8 +20,11 @@ def uniq_generator(seq):
 def uniq_blind(seq):
     return list(dict.fromkeys(seq))
 
+code = '''
 input_list = [2, 3, 1, 10, 3, 3, 1, 10, 5, 2]
 output_list = uniq_generator(input_list)
-
 for element in output_list:
-    print(element)
+    pass
+'''
+
+print(timeit.timeit(code, globals=globals()))
